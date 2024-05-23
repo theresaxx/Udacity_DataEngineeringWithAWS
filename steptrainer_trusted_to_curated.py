@@ -24,9 +24,9 @@ Join_node1716384396839 = Join.apply(frame1=S3Steptrainercurated_node171638416723
 # Script generated for node Drop Fields
 DropFields_node1716384427060 = DropFields.apply(frame=Join_node1716384396839, paths=["`.customername`", "`.sharewithpublicasofdate`", "`.birthday`", "`.lastupdatedate`", "`.registrationdate`", "`.serialnumber`", "`.sharewithresearchasofdate`"], transformation_ctx="DropFields_node1716384427060")
 
-# Script generated for node S3 Step Trainer Trusted
-S3StepTrainerTrusted_node1716384433637 = glueContext.getSink(path="s3://stedi-trusted-zone/step-trainer/", connection_type="s3", updateBehavior="UPDATE_IN_DATABASE", partitionKeys=[], enableUpdateCatalog=True, transformation_ctx="S3StepTrainerTrusted_node1716384433637")
-S3StepTrainerTrusted_node1716384433637.setCatalogInfo(catalogDatabase="stedi",catalogTableName="step_trainer_trusted")
-S3StepTrainerTrusted_node1716384433637.setFormat("json")
-S3StepTrainerTrusted_node1716384433637.writeFrame(DropFields_node1716384427060)
+# Script generated for node S3 Step Trainer Curated
+S3StepTrainerCurated_node1716384433637 = glueContext.getSink(path="s3://stedi-curated-zone/step-trainer/", connection_type="s3", updateBehavior="UPDATE_IN_DATABASE", partitionKeys=[], enableUpdateCatalog=True, transformation_ctx="S3StepTrainerCurated_node1716384433637")
+S3StepTrainerCurated_node1716384433637.setCatalogInfo(catalogDatabase="stedi",catalogTableName="step_trainer_curated")
+S3StepTrainerCurated_node1716384433637.setFormat("json")
+S3StepTrainerCurated_node1716384433637.writeFrame(DropFields_node1716384427060)
 job.commit()
